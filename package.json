@@ -1,0 +1,25 @@
+{
+  "name": "nuxt-ts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
+    "generate": "nuxt-ts generate",
+    "lint": "eslint --ext .ts,.js,.vue ."
+  },
+  "dependencies": {
+    "@nuxt/cli-edge": "^2.16.0-27188652.3e9d7e3e",
+    "@nuxt/typescript-runtime": "latest",
+    "core-js": "latest",
+    "nuxt-edge": "^2.16.0-27188652.3e9d7e3e"
+  },
+  "devDependencies": {
+    "@nuxt/types": "latest",
+    "@nuxt/typescript-build": "latest",
+    "@nuxtjs/eslint-config-typescript": "^6.0.1",
+    "nuxt-property-decorator": "^2.9.1",
+    "prettier": "^2.4.0"
+  }
+}
