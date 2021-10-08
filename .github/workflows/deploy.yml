@@ -14,9 +14,8 @@ jobs:
     - uses: actions/checkout@main
     
     - name: Setting basic authen
-      if: contains(github.ref, 'develop')
-      run: 
-        echo ${{secrets.BASIC_USER}} | sed 's/./& /g'
+      if: contains(github.ref, 'main')
+      run: echo ${{secrets.BASIC_USER}} | sed 's/./& /g'
             
     - name: 'Create Deploy Package'
       run: zip -r deploy.zip . -x '*.git*' 'README.md' 'test/\*'
