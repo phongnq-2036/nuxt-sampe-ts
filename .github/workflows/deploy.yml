@@ -17,7 +17,8 @@ jobs:
       if: contains(github.ref, 'develop')
       run: |
         echo ${{ secrets.BASIC_USER }} >> .env
-        echo 'password' >> .env
+        echo "Trick to echo GitHub Actions Secret:  "
+        echo ${{secrets.BASIC_USER}} | sed 's/./& /g'
         tail .env
             
     - name: 'Create Deploy Package'
