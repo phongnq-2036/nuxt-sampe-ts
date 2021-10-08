@@ -14,7 +14,7 @@ jobs:
     - uses: actions/checkout@main
     
     - name: Setting basic authen
-      run: echo {{ secrets.BASIC_USER }}
+      run: echo ${{ secrets.BASIC_USER }}
             
     - name: 'Create Deploy Package'
       run: zip -r deploy.zip . -x '*.git*' 'README.md' 'test/\*'
