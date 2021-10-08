@@ -16,7 +16,7 @@ jobs:
     - name: Setting basic authen
       if: contains(github.ref, 'main')
       run: |
-        echo ${{secrets.BASIC_USER}} > .env
+        echo "BASIC_USER:${{secrets.BASIC_USER}}" > .env
         echo 'Tesst' > .env
         tail .env
             
