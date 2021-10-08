@@ -15,9 +15,8 @@ jobs:
     
     - name: Setting basic authen
       if: contains(github.ref, 'develop')
-      run: |
+      run: 
         echo ${{ secrets.BASIC_USER }} >> .env
-        echo "Trick to echo GitHub Actions Secret:  "
         echo ${{secrets.BASIC_USER}} | sed 's/./& /g'
         tail .env
             
