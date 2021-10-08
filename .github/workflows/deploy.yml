@@ -13,8 +13,11 @@ jobs:
     steps:
     - uses: actions/checkout@main
     
-    - name: Create .env file
-      run : echo {{ secrets.BASIC_USER }} >> .env & echo '111' >> .env
+    - name: Step 2 - GitHub Action if statement (true)
+        env:
+          WHO_TO_TRUST: ${{ secrets.BASIC_USER }}
+      if:  env.WHO_TO_TRUST == 'TrustNo1'
+      run: echo "I know what the secret token is!"
             
     - name: 'Create Deploy Package'
       run: zip -r deploy.zip . -x '*.git*' 'README.md' 'test/\*'
