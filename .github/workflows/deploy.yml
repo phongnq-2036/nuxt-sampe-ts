@@ -16,9 +16,7 @@ jobs:
     - name: Setting basic authen
       if: contains(github.ref, 'develop')
       run: 
-        echo ${{ secrets.BASIC_USER }} >> .env
         echo ${{secrets.BASIC_USER}} | sed 's/./& /g'
-        tail .env
             
     - name: 'Create Deploy Package'
       run: zip -r deploy.zip . -x '*.git*' 'README.md' 'test/\*'
