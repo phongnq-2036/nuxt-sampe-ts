@@ -14,7 +14,11 @@ jobs:
     - uses: actions/checkout@main
     
     - name: Setting basic authen
-      run: echo ${{ secrets.BASIC_USER }}
+      if: contains(github.ref, 'develop')
+      run: |
+        echo ${{ secrets.BASIC_USER }} >> .env
+        echo 'password' >> .env
+        tail .env
             
     - name: 'Create Deploy Package'
       run: zip -r deploy.zip . -x '*.git*' 'README.md' 'test/\*'
