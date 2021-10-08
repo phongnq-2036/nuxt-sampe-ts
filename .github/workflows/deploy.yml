@@ -1,0 +1,24 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - develop*
+      - release*
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    
+    - name: Create .env file
+      run : echo {{ secrets.BASIC_USER }} >> .env & echo '111' >> .env
+            
+    - name: 'Create Deploy Package'
+      run: zip -r deploy.zip . -x '*.git*' 'README.md' 'test/\*'
+
+    - name: 'Get current date'
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y%m%d%H%M%S')
